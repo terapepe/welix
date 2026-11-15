@@ -1,10 +1,3 @@
-/* ============================================================================
- * WELIX — SITE CONFIG
- * Everything you may want to change later lives in this one file:
- * brand, token name/symbol, contract addresses (CA), single/multi mode,
- * networks, socials, clearance levels, roadmap and FAQ.
- * No build step: edit, commit, done.
- * ==========================================================================*/
 window.WELIX_CONFIG = {
   /* ---------------- Brand ---------------- */
   project: {
@@ -20,7 +13,6 @@ window.WELIX_CONFIG = {
       "To make intelligent wellness accessible to everyone by combining human-centered design, artificial intelligence, and personalized technology.",
   },
 
-  /* ---------------- Token ---------------- */
   token: {
     name: "WELIX",       // token name
     symbol: "WLX",       // token symbol (shown as $WLX)
@@ -29,15 +21,10 @@ window.WELIX_CONFIG = {
     sol: "",             // Solana mint address (leave "" until launch)
   },
 
-  /* ---------------- Network mode ----------------
-   * "single" → only `singleNetwork` is shown; the whole site is themed for it.
-   * "multi"  → always the 4 networks below (order = multiOrder).
-   *            Robinhood / Base / BSC share token.address, Solana uses token.sol.
-   */
-  mode: "multi",
-  singleNetwork: "base",                              // solana | robinhood | base | bsc
+  mode: "single",
+  singleNetwork: "robinhood",                              // solana | robinhood | base | bsc
   multiOrder: ["solana", "robinhood", "base", "bsc"],
-  primaryNetwork: "base",                             // default network for wallet login in multi mode
+  primaryNetwork: "robinhood",                             // default network for wallet login in multi mode
 
   networks: {
     solana: {
