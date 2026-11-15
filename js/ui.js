@@ -65,11 +65,11 @@
       const el = $("#site-header");
       if (!el) return;
       const nav = page === "docs"
-        ? [["index.html", "Terminal"], ["#overview", "Overview"], ["#networks", "Networks"], ["#faq", "FAQ"]]
-        : [["#about", "About"], ["#ecosystem", "Ecosystem"], ["#vision", "Vision"], ["#vitals", "Network"], ["#plan", "Plan"], ["docs.html", "Docs"]];
+        ? [["./", "Terminal"], ["#overview", "Overview"], ["#networks", "Networks"], ["#faq", "FAQ"]]
+        : [["#about", "About"], ["#ecosystem", "Ecosystem"], ["#vision", "Vision"], ["#vitals", "Network"], ["#plan", "Plan"], ["docs", "Docs"]];
       el.innerHTML = `
         <div class="hdr-in">
-          <a class="brand" href="index.html" aria-label="${esc(CFG.project.name)} home">
+          <a class="brand" href="./" aria-label="${esc(CFG.project.name)} home">
             <img src="assets/brand/welix-mark.svg" alt="" width="36" height="36">
             <span class="brand-t"><b>${esc(CFG.project.name)}</b><small>${esc(CFG.project.systemId)}</small></span>
           </a>
@@ -142,7 +142,7 @@
         <div class="ftr-in">
           <div class="ftr-brand"><img src="assets/brand/welix-lockup.svg" alt="${esc(CFG.project.name)}" height="44"></div>
           <div class="ftr-links">
-            <a href="index.html">Terminal</a><a href="docs.html">Docs</a><a href="docs.html#brand">Brand kit</a>${UI.socials()}
+            <a href="./">Terminal</a><a href="docs">Docs</a><a href="docs#brand">Brand kit</a>${UI.socials()}
           </div>
           <p class="disc">${esc(CFG.project.name)} — ${esc(CFG.project.signature || "")}</p>
           <p class="disc">${esc(UI.sym())} is the community token of the ${esc(CFG.project.name)} ecosystem. ${esc(CFG.project.name)} provides wellness insights only —
@@ -234,6 +234,11 @@
     },
 
     init(page) {
+      /* Clean URL: show /docs instead of /docs.html, / instead of /index.html */
+      if (/\.html$/.test(location.pathname)) {
+        const clean = location.pathname.replace(/(^|\/)index\.html$/, "$1").replace(/\.html$/, "");
+        try { history.replaceState(null, "", clean + location.search + location.hash); } catch {}
+      }
       UI.applyTheme();
       document.title = page === "docs"
         ? `Docs — ${CFG.project.name} ($${CFG.token.symbol})`

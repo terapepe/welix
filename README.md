@@ -24,11 +24,22 @@ layered hologram windows, a live kernel log, a body scanner, a DNA sequencer and
 ## Run locally
 
 ```bash
-python3 -m http.server 8000
-# open http://localhost:8000
+npx serve .
+# open http://localhost:3000  (clean URLs: /docs)
 ```
 
-Works on GitHub Pages, Vercel, Netlify or any shared hosting (just upload the files).
+### Clean URLs (no `.html`)
+
+Pages are linked as `/` and `/docs`. Hosting support is included:
+
+| Host | How |
+|---|---|
+| Hostinger / Apache | `.htaccess` (rewrites `/docs` → `docs.html`, 301-redirects `*.html`) |
+| Vercel | `vercel.json` (`cleanUrls: true`) |
+| Netlify | `_redirects` + built-in pretty URLs |
+| GitHub Pages | built-in (`/docs` serves `docs.html`) |
+
+If someone opens `docs.html` directly, the address bar is rewritten to `/docs` by `js/ui.js`.
 
 ## Configuration — `js/config.js`
 

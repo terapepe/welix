@@ -165,7 +165,7 @@
   /* ---------- FAQ ---------- */
   $("#faq").innerHTML = `<span class="tag">FREQUENT QUERIES</span>` + (CFG.faq || []).map((f, i) =>
     `<details class="holo" ${i === 0 ? "open" : ""}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("") +
-    `<a class="btn" href="docs.html#faq">More in the docs →</a>`;
+    `<a class="btn" href="docs#faq">More in the docs →</a>`;
 
   /* ---------- Terminal ---------- */
   const out = $("#term-out"), input = $("#term-input");
@@ -187,7 +187,7 @@
     scan: async () => { for (const [p, l] of [[12, "sleep"], [37, "nutrition"], [64, "fitness"], [88, "recovery"], [100, "mind"]]) { await new Promise((r) => setTimeout(r, 260)); print(`[${"█".repeat(p / 5).padEnd(20, "░")}] ${p}% ${l}`); } print("insight: <span class='amber'>" + esc(CFG.project.motto) + "</span> (demo animation — not medical advice)"); },
     plan: () => (CFG.roadmap || []).forEach((p) => print(`PHASE ${esc(p.phase)} ${esc(p.title)} [${esc(p.status)}]`)),
     socials: () => { if (CFG.social.x) print(`X → <a href="${esc(CFG.social.x)}" target="_blank" rel="noopener">${esc(CFG.social.xHandle || CFG.social.x)}</a>`); if (CFG.social.telegram) print(`Telegram → <a href="${esc(CFG.social.telegram)}" target="_blank" rel="noopener">${esc(CFG.social.telegramHandle || CFG.social.telegram)}</a>`); },
-    docs: () => { print("opening docs…"); location.href = "docs.html"; },
+    docs: () => { print("opening docs…"); location.href = "docs"; },
     clear: () => (out.innerHTML = ""),
     sudo: () => print("nice try. the immune firewall saw that.", "err"),
   };
