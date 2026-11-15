@@ -6,7 +6,7 @@ window.WELIX_CONFIG = {
     signature: "Intelligence for a Better Life.",      // footer / closing line
     motto: "Understand Yourself. Improve Every Day. Live Better.",
     era: "2077",
-    systemId: "WLX-MED-2077",                         // shown in terminal headers
+    systemId: "WEX-MED-2077",                         // shown in terminal headers
     description:
       "WELIX is where artificial intelligence meets personal wellness. We believe that a healthier life begins with better understanding of yourself.",
     vision:
@@ -15,7 +15,7 @@ window.WELIX_CONFIG = {
 
   token: {
     name: "WELIX",       // token name
-    symbol: "WLX",       // token symbol (shown as $WLX)
+    symbol: "WEX",       // token symbol (shown as $WLX)
     decimals: 18,        // fallback only — the real value is read on-chain
     address: "0x9842358fA43F85824DAD5fd780aE91787E6CC513",         // EVM CA shared by Robinhood, Base and BSC (leave "" until launch)
     sol: "",             // Solana mint address (leave "" until launch)
