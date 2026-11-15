@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" data-mode="multi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docs — WELIX ($WLX)</title>
+  <meta name="description" content="WELIX documentation: project overview, wallet login, contract addresses, networks, safety and configuration.">
+  <meta name="theme-color" content="#030508">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;600&family=Chakra+Petch:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="docs">
+  <div class="scan-ov" aria-hidden="true"></div>
+  <header class="hdr" id="site-header"></header>
+
+  <div class="docs wrap">
+    <aside class="docs-nav holo" id="docs-nav">
+      <span class="tag">MANUAL</span>
+      <a href="#overview">Overview</a>
+      <a href="#quickstart">Quick start</a>
+      <a href="#wallet">Wallet login</a>
+      <a href="#ca">Contract address</a>
+      <a href="#networks">Networks</a>
+      <a href="#acquire">Getting <span data-sym>$WLX</span></a>
+      <a href="#clearance">Clearance levels</a>
+      <a href="#console">Operator console</a>
+      <a href="#safety">Safety protocol</a>
+      <a href="#brand">Brand kit</a>
+      <a href="#faq">FAQ</a>
+      <a href="#maintainers">For maintainers</a>
+      <a href="#disclaimer">Disclaimer</a>
+    </aside>
+
+    <article class="docs-body">
+      <section id="overview">
+        <span class="tag">00 // OVERVIEW</span>
+        <h1>The <span data-cfg="project.name">WELIX</span> Manual</h1>
+        <p class="lead" data-cfg="project.description"></p>
+        <div class="d-cards">
+          <div class="holo"><small>TOKEN NAME</small><b data-cfg="token.name">WELIX</b></div>
+          <div class="holo"><small>SYMBOL</small><b class="amber" data-sym>$WLX</b></div>
+          <div class="holo"><small>NETWORKS</small><b id="d-netcount">—</b></div>
+          <div class="holo"><small>OFFICIAL X</small><b id="d-x">—</b></div>
+        </div>
+        <h3>What is WELIX?</h3>
+        <p>WELIX is a community token dressed as a medical AI from the year <span data-cfg="project.era">2077</span>. The website is
+          the WELIX terminal — a hologram-style control room where holders can find the official contract address, log in with their
+          wallet, watch live network vitals and see their clearance level.</p>
+        <p>The story: in 2077 every hospital ward is run by one autonomous intelligence, WELIX. It triages, sequences and heals —
+          and its patients are the holders. Each blockchain the token lives on is a <em>ward</em>.</p>
+        <div class="callout">The medical theme is pure science fiction. WELIX is not a healthcare product and gives no medical advice.</div>
+      </section>
+
+      <section id="quickstart">
+        <span class="tag">01 // QUICK START</span>
+        <h2>Quick start in 4 steps</h2>
+        <ol class="steps">
+          <li><b>Get a wallet.</b> For Solana: Phantom, Solflare or Backpack. For Robinhood Chain, Base or BSC: MetaMask, Rabby, Coinbase Wallet or any EVM wallet.</li>
+          <li><b>Copy the official CA</b> from the CA box on the home page. Each address has its network logo next to it.</li>
+          <li><b>Connect your wallet</b> with the <em>Connect</em> button. Pick a network, pick a wallet, approve the connection.</li>
+          <li><b>Open your patient file</b> in the <em>Patient Record</em> section to see your <span data-sym>$WLX</span> balance and clearance.</li>
+        </ol>
+      </section>
+
+      <section id="wallet">
+        <span class="tag">02 // AUTH</span>
+        <h2>Wallet login</h2>
+        <p>Login is <b>read-only</b>. The site asks your wallet for your public address only. It never requests token approvals,
+          signatures for transfers, or any payment.</p>
+        <h3>EVM networks (Robinhood Chain, Base, BSC)</h3>
+        <ul>
+          <li>The site detects every installed wallet (EIP-6963). If several are installed, you choose which one to use.</li>
+          <li>After connecting, the wallet is asked to switch to the selected network. If the network is missing, it is added automatically with the official RPC and explorer.</li>
+          <li>If you switch networks inside your wallet later, the site follows.</li>
+        </ul>
+        <h3>Solana</h3>
+        <ul>
+          <li>Supported: Phantom, Solflare, Backpack. Wallets that are not installed show a download link.</li>
+        </ul>
+        <h3>Disconnecting</h3>
+        <p>Click your address in the header → <em>Disconnect</em>. The site forgets the session. You can also revoke the site in your wallet's "connected sites" settings.</p>
+      </section>
+
+      <section id="ca">
+        <span class="tag">03 // CONTRACT</span>
+        <h2>Official contract address</h2>
+        <p>Always copy the CA from this website or the official X account. The <em>Copy CA</em> button copies the full address.
+          The arrow icons open the token page on each network's explorer so you can verify it.</p>
+        <div class="ca-block holo" id="doc-ca"></div>
+        <p class="muted">If the box says <em>Awaiting deployment</em>, the token has not launched yet. Anything you see elsewhere is not official.</p>
+      </section>
+
+      <section id="networks">
+        <span class="tag">04 // WARDS</span>
+        <h2>Networks</h2>
+        <p id="d-mode"></p>
+        <div class="tbl-wrap"><table class="tbl" id="d-nets"></table></div>
+        <h3>Single vs multi mode</h3>
+        <ul>
+          <li><b>Single mode</b> — the site shows one network only and the whole interface adopts that network's colors and identity.</li>
+          <li><b>Multi mode</b> — the site always shows all four wards: Solana, Robinhood Chain, Base and BSC. Robinhood, Base and BSC share the same EVM contract address; Solana has its own mint address.</li>
+        </ul>
+      </section>
+
+      <section id="acquire">
+        <span class="tag">05 // ACQUIRE</span>
+        <h2>Getting <span data-sym>$WLX</span></h2>
+        <ol class="steps">
+          <li>Fund your wallet with the network's gas token (SOL on Solana, ETH on Robinhood Chain and Base, BNB on BSC).</li>
+          <li>Open a decentralised exchange you trust that supports that network.</li>
+          <li>Paste the official CA from this site into the token search. Never pick a token by name or logo alone — copycats use both.</li>
+          <li>Check the contract on the explorer link from the CA box before you confirm any swap.</li>
+        </ol>
+        <div class="callout warn">The WELIX team never DMs first, never asks for your seed phrase and never asks you to "validate" or "sync" a wallet.</div>
+      </section>
+
+      <section id="clearance">
+        <span class="tag">06 // CLEARANCE</span>
+        <h2>Clearance levels</h2>
+        <p>When you connect, the terminal reads your real on-chain <span data-sym>$WLX</span> balance on the selected network and assigns the highest level you qualify for.</p>
+        <div class="tbl-wrap"><table class="tbl" id="d-levels"></table></div>
+      </section>
+
+      <section id="console">
+        <span class="tag">07 // CONSOLE</span>
+        <h2>Operator console</h2>
+        <p>The home page has an interactive terminal. Type a command and press Enter.</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>Command</th><th>What it does</th></tr>
+          <tr><td><code>help</code></td><td>List all commands</td></tr>
+          <tr><td><code>ca</code> / <code>copy</code></td><td>Show / copy the official contract address</td></tr>
+          <tr><td><code>networks</code></td><td>List active wards</td></tr>
+          <tr><td><code>status</code></td><td>Ping every network live (block height + latency)</td></tr>
+          <tr><td><code>connect</code> / <code>whoami</code></td><td>Log in / show your patient file</td></tr>
+          <tr><td><code>scan</code></td><td>Run a (fictional) full-body scan</td></tr>
+          <tr><td><code>plan</code>, <code>socials</code>, <code>docs</code>, <code>clear</code></td><td>Roadmap, official links, this manual, clear screen</td></tr>
+        </table></div>
+      </section>
+
+      <section id="safety">
+        <span class="tag">08 // SAFETY</span>
+        <h2>Safety protocol</h2>
+        <ul>
+          <li>Bookmark the official site and only open it from your bookmark.</li>
+          <li>Verify the CA on the explorer — the network logo in the CA box tells you which chain it belongs to.</li>
+          <li>Never share your seed phrase or private key. No real support agent will ever ask for it.</li>
+          <li>Connecting to this site is read-only. If any page asks you to approve spending to "claim" WELIX, it is a scam.</li>
+          <li>Crypto is volatile. Only use money you can afford to lose.</li>
+        </ul>
+      </section>
+
+      <section id="brand">
+        <span class="tag">09 // BRAND</span>
+        <h2>Brand kit</h2>
+        <p>The WELIX mark is a hexagonal medical capsule holding a double helix, with the AI core and a medical cross at its center.
+          Amber = the human pulse. Electric blue = the machine mind. Deep black = the void the hologram floats in.</p>
+        <div class="brand-g">
+          <figure class="holo"><img src="assets/brand/welix-mark.svg" alt="WELIX mark" height="120"><figcaption><a href="assets/brand/welix-mark.svg" download>welix-mark.svg</a></figcaption></figure>
+          <figure class="holo wide"><img src="assets/brand/welix-lockup.svg" alt="WELIX lockup" height="80"><figcaption><a href="assets/brand/welix-lockup.svg" download>welix-lockup.svg</a></figcaption></figure>
+          <figure class="holo full"><img src="assets/brand/welix-banner.svg" alt="WELIX banner"><figcaption><a href="assets/brand/welix-banner.svg" download>welix-banner.svg</a> · 1500×500 (X header)</figcaption></figure>
+        </div>
+        <div class="swatches">
+          <span style="--s:#030508">Void Black<code>#030508</code></span>
+          <span style="--s:#FFB000">Pulse Amber<code>#FFB000</code></span>
+          <span style="--s:#FF8A00">Core Orange<code>#FF8A00</code></span>
+          <span style="--s:#00E1FF">Electric Blue<code>#00E1FF</code></span>
+          <span style="--s:#1E7BFF">Deep Signal<code>#1E7BFF</code></span>
+        </div>
+        <p class="muted">Typefaces: Orbitron (display), Chakra Petch (text), JetBrains Mono (data).</p>
+      </section>
+
+      <section id="faq">
+        <span class="tag">10 // FAQ</span>
+        <h2>FAQ</h2>
+        <div class="faq" id="d-faq"></div>
+      </section>
+
+      <section id="maintainers">
+        <span class="tag">11 // MAINTAINERS</span>
+        <h2>For maintainers: editing the config</h2>
+        <p>Everything changeable lives in <code>js/config.js</code>. No build step — edit the file on GitHub, commit, and the site updates.</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>Key</th><th>Purpose</th></tr>
+          <tr><td><code>project.name / tagline / description</code></td><td>Brand texts</td></tr>
+          <tr><td><code>token.name / token.symbol</code></td><td>Token name and symbol shown everywhere</td></tr>
+          <tr><td><code>token.address</code></td><td>EVM CA shared by Robinhood, Base and BSC</td></tr>
+          <tr><td><code>token.sol</code></td><td>Solana mint address</td></tr>
+          <tr><td><code>mode</code></td><td><code>"single"</code> or <code>"multi"</code></td></tr>
+          <tr><td><code>singleNetwork</code></td><td><code>solana | robinhood | base | bsc</code> — network used (and themed) in single mode</td></tr>
+          <tr><td><code>multiOrder / primaryNetwork</code></td><td>Network order and default login network in multi mode</td></tr>
+          <tr><td><code>networks.&lt;id&gt;</code></td><td>Name, colors, ward name, tagline, RPC, explorer, icon, optional <code>ca</code> override</td></tr>
+          <tr><td><code>social.x / social.telegram</code></td><td>Official links (empty = hidden)</td></tr>
+          <tr><td><code>clearance</code></td><td>Holder levels by token amount</td></tr>
+          <tr><td><code>roadmap / faq</code></td><td>Treatment plan and FAQ content</td></tr>
+          <tr><td><code>vitalsRefreshMs / bootSequence</code></td><td>Live vitals refresh rate, boot screen on/off</td></tr>
+        </table></div>
+      </section>
+
+      <section id="disclaimer">
+        <span class="tag">12 // LEGAL</span>
+        <h2>Disclaimer</h2>
+        <p class="muted"><span data-cfg="project.name">WELIX</span> (<span data-sym>$WLX</span>) is a community token with no intrinsic value or expectation of financial return.
+          Nothing on this website is financial, investment, legal or medical advice. All medical imagery, terminology and "diagnoses" are fiction for entertainment.
+          Do your own research and comply with the laws of your jurisdiction.</p>
+      </section>
+    </article>
+  </div>
+
+  <footer class="ftr" id="site-footer"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/chain.js"></script>
+  <script src="js/wallet.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/docs.js"></script>
+</body>
+</html>
