@@ -1,8 +1,10 @@
-# WELIX — Autonomous Medical Intelligence ($WLX)
+# WELIX — Your Wellness, Powered by AI. ($WLX)
 
 <p align="center"><img src="assets/brand/welix-lockup.svg" alt="WELIX" height="90"></p>
 
-Static website (HTML / CSS / vanilla JS, **no build step**) for the WELIX token, styled as a medical-AI terminal from 2077:
+WELIX is where artificial intelligence meets personal wellness — sleep, nutrition, fitness, recovery and mental well-being in one intelligent ecosystem. *Intelligence for a Better Life.*
+
+Static website (HTML / CSS / vanilla JS, **no build step**), styled as a futuristic AI terminal:
 layered hologram windows, a live kernel log, a body scanner, a DNA sequencer and a pulsing AI core.
 
 - **Token:** WELIX · **Symbol:** $WLX
@@ -34,7 +36,7 @@ Everything you may change later is in one file.
 
 | Key | Purpose |
 |---|---|
-| `project.name`, `tagline`, `description`, `systemId` | Brand texts |
+| `project.name`, `tagline`, `description`, `motto`, `vision`, `signature`, `systemId` | Brand texts |
 | `token.name`, `token.symbol` | Token name / symbol (shown everywhere) |
 | `token.address` | EVM CA shared by Robinhood, Base and BSC — leave `""` until launch |
 | `token.sol` | Solana mint address — leave `""` until launch |

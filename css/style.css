@@ -305,6 +305,21 @@ html[data-mode="multi"] .ladder li.cur { background: rgba(255,176,0,.08); }
 .mod h3 { font: 700 18px var(--ff-d); letter-spacing: .04em; margin: 14px 0 8px; color: #fff; }
 .mod p { margin: 0; color: #9fb3c6; font-size: 15px; }
 
+/* About / journey / vision */
+.about { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: start; }
+.about-b p { color: #b4c6d6; margin: 0 0 16px; }
+.about-b .big-p { font-size: 22px; line-height: 1.5; color: #fff; }
+.motto { font: 600 13px var(--ff-m); letter-spacing: .14em; color: var(--blue); text-transform: uppercase; margin: -8px 0 22px; }
+.journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.step { padding: 26px; }
+.step-n { font: 900 44px var(--ff-d); color: transparent; -webkit-text-stroke: 1px var(--accent); }
+.step h3 { font: 800 22px var(--ff-d); margin: 10px 0 8px; color: #fff; }
+.step p { margin: 0; color: #9fb3c6; }
+.vision { padding: 56px clamp(24px, 6vw, 80px); text-align: center; }
+.vision blockquote { margin: 22px auto; max-width: 860px; font: 600 clamp(22px, 3vw, 34px)/1.35 var(--ff-t); color: #fff; }
+.vision .sig { font: 600 14px var(--ff-m); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0; }
+.vision .sig b { font-family: var(--ff-d); }
+
 /* Plan */
 .plan { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .phase { padding: 22px; }
@@ -424,7 +439,7 @@ html[data-mode="multi"] .ladder li.cur { background: rgba(255,176,0,.08); }
   .hero-r { height: 540px; }
   .mods { grid-template-columns: 1fr 1fr; }
   .plan { grid-template-columns: 1fr 1fr; }
-  .record, .console-grid { grid-template-columns: 1fr; }
+  .record, .console-grid, .about, .journey { grid-template-columns: 1fr; }
   .tel-g, .d-cards { grid-template-columns: 1fr 1fr; }
   .docs { grid-template-columns: 1fr; }
   .docs-nav { position: static; flex-direction: row; flex-wrap: wrap; }

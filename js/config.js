@@ -9,11 +9,15 @@ window.WELIX_CONFIG = {
   /* ---------------- Brand ---------------- */
   project: {
     name: "WELIX",                                   // brand name (logo text, titles)
-    tagline: "Autonomous Medical Intelligence",
+    tagline: "Your Wellness, Powered by AI.",
+    signature: "Intelligence for a Better Life.",      // footer / closing line
+    motto: "Understand Yourself. Improve Every Day. Live Better.",
     era: "2077",
     systemId: "WLX-MED-2077",                         // shown in terminal headers
     description:
-      "WELIX is a community token wrapped in a 2077 medical-AI universe: a terminal that scans, sequences and heals the chain. Connect a wallet, copy the CA, join the ward.",
+      "WELIX is where artificial intelligence meets personal wellness. We believe that a healthier life begins with better understanding of yourself.",
+    vision:
+      "To make intelligent wellness accessible to everyone by combining human-centered design, artificial intelligence, and personalized technology.",
   },
 
   /* ---------------- Token ---------------- */
@@ -141,9 +145,9 @@ window.WELIX_CONFIG = {
   /* ---------------- FAQ ---------------- */
   faq: [
     { q: "What is WELIX?",
-      a: "WELIX ($WLX) is a community token with a 2077 medical-AI theme. The website is the WELIX terminal: copy the official CA, connect your wallet and check your clearance level." },
-    { q: "Is WELIX a medical product?",
-      a: "No. Everything medical on this site is science-fiction design. WELIX gives no medical advice and is not a healthcare service." },
+      a: "WELIX is where artificial intelligence meets personal wellness — an intelligent ecosystem for sleep, nutrition, fitness, recovery and mental well-being. $WLX is the community token of the WELIX ecosystem." },
+    { q: "Is WELIX a medical service?",
+      a: "No. WELIX is about wellness insights and healthier daily habits. It does not diagnose or treat any condition and is not a substitute for professional medical advice." },
     { q: "Where do I find the official contract address?",
       a: "Only on this website and the official X account. The CA box shows the network logo next to each address so you always know which chain it belongs to." },
     { q: "Why does the same CA appear on Robinhood, Base and BSC?",

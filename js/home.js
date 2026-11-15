@@ -11,12 +11,12 @@
   FX.boot([
     `WELIX BIOS v${CFG.project.era}.11 — ${CFG.project.systemId}`,
     "memory check ............ OK",
-    "loading neural triage core ............ OK",
-    "calibrating helix sequencer ............ OK",
+    "loading wellness intelligence core ............ OK",
+    "syncing sleep · nutrition · fitness · recovery · mind ............ OK",
     `mounting wards: ${nets().map((n) => n.short).join(" · ")}`,
     `token ${CFG.token.name} ($${CFG.token.symbol}) ............ ${Chain.caGroups().some((g) => g.ca) ? "LINKED" : "AWAITING CA"}`,
     "immune firewall ............ ARMED",
-    "> system ready. welcome, operator.",
+    `> ${CFG.project.motto}`,
   ]);
   FX.field($("#field"));
   FX.ecg($("#ecg"));
@@ -35,6 +35,8 @@
   /* ---------- Ticker ---------- */
   const tick = [
     `${CFG.token.name} · $${CFG.token.symbol}`,
+    CFG.project.tagline.toUpperCase(),
+    ...(CFG.project.motto || "").split(". ").map((m) => m.replace(/\.$/, "").toUpperCase()),
     `MODE: ${single ? "SINGLE · " + prim.name.toUpperCase() : "MULTI-WARD"}`,
     ...nets().map((n) => `${n.short} :: ${n.ward.toUpperCase()}`),
     Chain.caGroups().some((g) => g.ca) ? "CA VERIFIED ON SITE" : "CA DROPS ON X — STAY TUNED",
@@ -170,18 +172,19 @@
   const print = (t, cls = "") => { const d = document.createElement("div"); d.className = "ln " + cls; d.innerHTML = t; out.appendChild(d); out.scrollTop = out.scrollHeight; };
   const C = {
     help: () => print(["Available commands:",
-      "  <b>about</b>     what is WELIX", "  <b>ca</b>        official contract addresses", "  <b>copy</b>      copy the first CA",
+      "  <b>about</b>     what is WELIX", "  <b>vision</b>    our vision", "  <b>ca</b>        official contract addresses", "  <b>copy</b>      copy the first CA",
       "  <b>networks</b>  list active wards", "  <b>status</b>    live network vitals", "  <b>connect</b>   log in with a wallet",
       "  <b>whoami</b>    your patient file", "  <b>scan</b>      run a full-body scan", "  <b>plan</b>      treatment plan",
       "  <b>socials</b>   official channels", "  <b>docs</b>      open documentation", "  <b>clear</b>     clear the screen"].join("<br>")),
     about: () => print(esc(CFG.project.description)),
+    vision: () => print(esc(CFG.project.vision) + "<br><span class='amber'>" + esc(CFG.project.name + " — " + CFG.project.signature) + "</span>"),
     ca: () => Chain.caGroups().forEach((g) => print(`${g.nets.map((n) => esc(n.short)).join("/")} → ${g.ca ? `<span class="amber">${esc(g.ca)}</span>` : "pending — announced on " + esc(CFG.social.xHandle || "X")}`)),
     copy: () => { const g = Chain.caGroups().find((x) => x.ca); g ? (UI.copy(g.ca), print("CA copied.", "ok")) : print("No CA published yet.", "err"); },
     networks: () => nets().forEach((n) => print(`<img class="net-ic sm" src="${esc(n.icon)}" alt=""> ${esc(n.name)} — ${esc(n.ward)}`)),
     status: async () => { print("pinging nodes…"); for (const n of nets()) { const v = await Chain.vitals(n.id); print(`${esc(n.short).padEnd(5)} ${v.online ? `<span class="ok">ONLINE</span> #${v.height.toLocaleString("en-US")} · ${v.latency}ms` : '<span class="err">NO SIGNAL</span>'}`); } },
     connect: () => { UI.openWallet(); print("auth window opened."); },
     whoami: () => { const s = Wallet.state; if (!s.connected) return print("anonymous. run <b>connect</b>.", "err"); const c = Wallet.clearance(); print(`${esc(s.address)}<br>ward: ${esc(s.network || "unsupported")} · balance: ${s.balance == null ? "—" : esc(UI.num(s.balance))} ${esc(UI.sym())} · clearance: ${c && s.balance != null ? esc(c.code + " " + c.name) : "—"}`); },
-    scan: async () => { for (const [p, l] of [[12, "neural"], [37, "cardiac"], [64, "genomic"], [88, "skeletal"], [100, "complete"]]) { await new Promise((r) => setTimeout(r, 260)); print(`[${"█".repeat(p / 5).padEnd(20, "░")}] ${p}% ${l}`); } print("diagnosis: <span class='amber'>degen, healthy, needs more " + esc(UI.sym()) + "</span> (fiction — not medical advice)"); },
+    scan: async () => { for (const [p, l] of [[12, "sleep"], [37, "nutrition"], [64, "fitness"], [88, "recovery"], [100, "mind"]]) { await new Promise((r) => setTimeout(r, 260)); print(`[${"█".repeat(p / 5).padEnd(20, "░")}] ${p}% ${l}`); } print("insight: <span class='amber'>" + esc(CFG.project.motto) + "</span> (demo animation — not medical advice)"); },
     plan: () => (CFG.roadmap || []).forEach((p) => print(`PHASE ${esc(p.phase)} ${esc(p.title)} [${esc(p.status)}]`)),
     socials: () => { if (CFG.social.x) print(`X → <a href="${esc(CFG.social.x)}" target="_blank" rel="noopener">${esc(CFG.social.xHandle || CFG.social.x)}</a>`); if (CFG.social.telegram) print(`Telegram → <a href="${esc(CFG.social.telegram)}" target="_blank" rel="noopener">${esc(CFG.social.telegramHandle || CFG.social.telegram)}</a>`); },
     docs: () => { print("opening docs…"); location.href = "docs.html"; },

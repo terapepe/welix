@@ -66,7 +66,7 @@
       if (!el) return;
       const nav = page === "docs"
         ? [["index.html", "Terminal"], ["#overview", "Overview"], ["#networks", "Networks"], ["#faq", "FAQ"]]
-        : [["#vitals", "Vitals"], ["#wards", "Wards"], ["#modules", "Modules"], ["#plan", "Plan"], ["#console", "Console"], ["docs.html", "Docs"]];
+        : [["#about", "About"], ["#ecosystem", "Ecosystem"], ["#vision", "Vision"], ["#vitals", "Network"], ["#plan", "Plan"], ["docs.html", "Docs"]];
       el.innerHTML = `
         <div class="hdr-in">
           <a class="brand" href="index.html" aria-label="${esc(CFG.project.name)} home">
@@ -144,9 +144,10 @@
           <div class="ftr-links">
             <a href="index.html">Terminal</a><a href="docs.html">Docs</a><a href="docs.html#brand">Brand kit</a>${UI.socials()}
           </div>
-          <p class="disc">${esc(CFG.project.name)} (${esc(UI.sym())}) is a community token. All medical imagery is science fiction —
-          not a medical device, not medical advice, not financial advice. Always verify the CA from official channels.</p>
-          <p class="copy-r">© ${new Date().getFullYear()} ${esc(CFG.project.name)} · ${esc(CFG.project.systemId)} · Built for the year ${esc(CFG.project.era)}</p>
+          <p class="disc">${esc(CFG.project.name)} — ${esc(CFG.project.signature || "")}</p>
+          <p class="disc">${esc(UI.sym())} is the community token of the ${esc(CFG.project.name)} ecosystem. ${esc(CFG.project.name)} provides wellness insights only —
+          not medical advice, diagnosis or treatment, and not financial advice. Always verify the CA from official channels.</p>
+          <p class="copy-r">© ${new Date().getFullYear()} ${esc(CFG.project.name)} · ${esc(CFG.project.systemId)} · ${esc(CFG.project.motto || "")}</p>
         </div>`;
     },
 
