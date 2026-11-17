@@ -17,7 +17,7 @@ window.WELIX_CONFIG = {
     name: "WELIX",       // token name
     symbol: "WEX",       // token symbol (shown as $WLX)
     decimals: 18,        // fallback only — the real value is read on-chain
-    address: "0x9842358fA43F85824DAD5fd780aE91787E6CC513",         // EVM CA shared by Robinhood, Base and BSC (leave "" until launch)
+    address: "",         // EVM CA shared by Robinhood, Base and BSC (leave "" until launch)
     sol: "",             // Solana mint address (leave "" until launch)
   },
 
